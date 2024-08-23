@@ -21,6 +21,8 @@ type
     procedure WebBrowser1BeforeNavigate2(ASender: TObject;
       const pDisp: IDispatch; const URL, Flags, TargetFrameName, PostData,
       Headers: OleVariant; var Cancel: WordBool);
+    procedure WebBrowser1NavigateError(ASender: TObject; const pDisp: IDispatch;
+      const URL, Frame, StatusCode: OleVariant; var Cancel: WordBool);
   private
     { Private declarations }
   public
@@ -34,7 +36,7 @@ implementation
 procedure window_setup();
 begin
  Application.Title:='Mini skype';
- Form1.Caption:='Mini skype 0.2.2';
+ Form1.Caption:='Mini skype 0.2.3';
  Form1.BorderStyle:=bsSizeable;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -120,6 +122,13 @@ procedure TForm1.WebBrowser1DocumentComplete(ASender: TObject;
 begin
  Form1.ProgressBar1.Position:=0;
  Form1.ProgressBar1.Max:=0;
+end;
+
+procedure TForm1.WebBrowser1NavigateError(ASender: TObject;
+  const pDisp: IDispatch; const URL, Frame, StatusCode: OleVariant;
+  var Cancel: WordBool);
+begin
+ Form1.WebBrowser1.Refresh();
 end;
 
 procedure TForm1.WebBrowser1ProgressChange(ASender: TObject; Progress,

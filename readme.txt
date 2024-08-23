@@ -2,7 +2,7 @@
 
                     Alternative Skype client by Popov Evgeniy Alekseyevich
 
-                             Version 0.2.2
+                             Version 0.2.3
 
 
 System requirement
@@ -38,3 +38,5 @@ Version history
 0.1.1 — 0.1.2 — Internal unstable builds
 0.1.3 — 0.1.6 — User interface improved
 0.1.7 — 0.2.2 — Small changes
+0.2.2.1 - Installer added
+0.2.3 — Small changes

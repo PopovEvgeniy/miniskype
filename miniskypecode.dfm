@@ -24,6 +24,7 @@ object Form1: TForm1
     OnProgressChange = WebBrowser1ProgressChange
     OnBeforeNavigate2 = WebBrowser1BeforeNavigate2
     OnDocumentComplete = WebBrowser1DocumentComplete
+    OnNavigateError = WebBrowser1NavigateError
     ControlData = {
       4C000000AA3F0000ED2B00000000000000000000000000000000000000000000
       000000004C000000000000000000000001000000E0D057007335CF11AE690800
