@@ -2,17 +2,21 @@
 
                     Alternative Skype client by Popov Evgeniy Alekseyevich
 
-                             Version 0.2.3
+                             Version 0.2.6
 
 
 System requirement
 
-Windows 11 (23H2) or higher
+Microsoft Windows 10 (22H2) or higher
 An internet connection
 
 Description and usage
 
-This program is an alternative client for Skype communication service.
+This program is an alternative client for web version of Skype.
+
+Thanks
+
+Big thanks to author of Ghetto Skype(https://github.com/stanfieldr/ghetto-skype) for inspiration.
 
 License
 
@@ -22,6 +26,10 @@ Third-party components
 
 Mini skype uses WebView control(https://www.nuget.org/packages/Microsoft.Web.WebView2).
 It distributed under BSD(https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.2651.64/License) license.
+
+Windows 10 specific notes
+
+32-bits version of Windows 10 don't suported.
 
 Source code
 
@@ -40,3 +48,5 @@ Version history
 0.1.7 — 0.2.2 — Small changes
 0.2.2.1 - Installer added
 0.2.3 — Small changes
+0.2.4 — User interface improved
+0.2.5 — 0.2.6 — Small changes

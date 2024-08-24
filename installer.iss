@@ -1,8 +1,8 @@
 [Setup]
-MinVersion=10.0.22631
+MinVersion=10.0.19045
 AppId={{B4E90873-B789-48A0-9210-9D4C176E080A}
 AppName=Mini skype
-AppVersion=0.2.3
+AppVersion=0.2.6
 AppPublisher=Popov Evgeniy Alekseyevich
 AppPublisherURL=https://github.com/PopovEvgeniy/miniskype
 AppSupportURL=https://github.com/PopovEvgeniy/miniskype
@@ -34,10 +34,7 @@ Source: .\source.zip; DestDir: {app}; Flags: ignoreversion; Components: source
 Source: .\WebView2Loader.dll; DestDir: {app}; Flags: ignoreversion
 
 [Icons]
-Name: {autodesktop}\Mini skype; Filename: {app}\miniskype.exe; IconIndex: 0; Tasks: normalinstall
-
-[Run]
-Filename: {app}\miniskype.exe; Description: {cm:LaunchProgram,Mini skype}; Flags: nowait postinstall skipifsilent
+Name: {autodesktop}\Mini skype; Filename: {app}\miniskype.exe; Tasks: normalinstall; WorkingDir: {app}
 
 [Components]
 Name: Main; Description: Main components; Flags: fixed; Types: minimalinstallation fullinstall
