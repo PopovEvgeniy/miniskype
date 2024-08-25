@@ -9,20 +9,13 @@ uses
 type
   TForm1 = class(TForm)
     WebBrowser1: TWebBrowser;
-    ProgressBar1: TProgressBar;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure WebBrowser1ProgressChange(ASender: TObject; Progress,
-      ProgressMax: Integer);
-    procedure WebBrowser1DocumentComplete(ASender: TObject;
-      const pDisp: IDispatch; const URL: OleVariant);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure WebBrowser1BeforeNavigate2(ASender: TObject;
       const pDisp: IDispatch; const URL, Flags, TargetFrameName, PostData,
       Headers: OleVariant; var Cancel: WordBool);
-    procedure WebBrowser1NavigateError(ASender: TObject; const pDisp: IDispatch;
-      const URL, Frame, StatusCode: OleVariant; var Cancel: WordBool);
     procedure WebBrowser1NewWindow3(ASender: TObject; var ppDisp: IDispatch;
       var Cancel: WordBool; dwFlags: LongWord; const bstrUrlContext,
       bstrUrl: WideString);
@@ -39,30 +32,16 @@ implementation
 procedure window_setup();
 begin
  Application.Title:='Mini skype';
- Form1.Caption:='Mini skype 0.2.6';
+ Form1.Caption:='Mini skype 0.2.8';
  Form1.BorderStyle:=bsSizeable;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
 end;
 
-procedure interface_setup();
-begin
- Form1.ProgressBar1.Smooth:=True;
- Form1.ProgressBar1.Style:=pbstMarquee;
- Form1.ProgressBar1.Orientation:=pbHorizontal;
- Form1.ProgressBar1.Min:=0;
- Form1.ProgressBar1.Position:=0;
- Form1.ProgressBar1.Max:=100;
- Form1.ProgressBar1.Step:=1;
- Form1.ProgressBar1.MarqueeInterval:=1;
-end;
-
 procedure resize_window();
 begin
- Form1.ProgressBar1.Width:=Form1.ClientWidth;
- Form1.ProgressBar1.Top:=Form1.ClientHeight-Form1.ProgressBar1.Height;
  Form1.WebBrowser1.Width:=Form1.ClientWidth;
- Form1.WebBrowser1.Height:=Form1.ProgressBar1.Top;
+ Form1.WebBrowser1.Height:=Form1.ClientHeight;
 end;
 
 procedure client_setup();
@@ -78,7 +57,6 @@ end;
 procedure setup();
 begin
  window_setup();
- interface_setup();
  client_setup();
  resize_window();
 end;
@@ -121,34 +99,12 @@ begin
 
 end;
 
-procedure TForm1.WebBrowser1DocumentComplete(ASender: TObject;
-  const pDisp: IDispatch; const URL: OleVariant);
-begin
- Form1.ProgressBar1.Position:=0;
- Form1.ProgressBar1.Max:=0;
-end;
-
-procedure TForm1.WebBrowser1NavigateError(ASender: TObject;
-  const pDisp: IDispatch; const URL, Frame, StatusCode: OleVariant;
-  var Cancel: WordBool);
-begin
- Cancel:=True;
- Form1.WebBrowser1.Refresh();
-end;
-
 procedure TForm1.WebBrowser1NewWindow3(ASender: TObject; var ppDisp: IDispatch;
   var Cancel: WordBool; dwFlags: LongWord; const bstrUrlContext,
   bstrUrl: WideString);
 begin
  Cancel:=True;
  ShowMessage('Sorry. You cant open external links');
-end;
-
-procedure TForm1.WebBrowser1ProgressChange(ASender: TObject; Progress,
-  ProgressMax: Integer);
-begin
- Form1.ProgressBar1.Max:=ProgressMax;
- Form1.ProgressBar1.Position:=Progress;
 end;
 
 end.
