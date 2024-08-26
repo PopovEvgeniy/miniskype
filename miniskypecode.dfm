@@ -23,7 +23,6 @@ object Form1: TForm1
     TabOrder = 0
     OnBeforeNavigate2 = WebBrowser1BeforeNavigate2
     OnNewWindow2 = WebBrowser1NewWindow2
-    OnNewWindow3 = WebBrowser1NewWindow3
     ControlData = {
       4C00000098400000C02C00000000000000000000000000000000000000000000
       000000004C000000000000000000000001000000E0D057007335CF11AE690800

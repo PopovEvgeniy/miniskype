@@ -16,9 +16,6 @@ type
     procedure WebBrowser1BeforeNavigate2(ASender: TObject;
       const pDisp: IDispatch; const URL, Flags, TargetFrameName, PostData,
       Headers: OleVariant; var Cancel: WordBool);
-    procedure WebBrowser1NewWindow3(ASender: TObject; var ppDisp: IDispatch;
-      var Cancel: WordBool; dwFlags: LongWord; const bstrUrlContext,
-      bstrUrl: WideString);
     procedure WebBrowser1NewWindow2(ASender: TObject; var ppDisp: IDispatch;
       var Cancel: WordBool);
   private
@@ -34,7 +31,7 @@ implementation
 procedure window_setup();
 begin
  Application.Title:='Mini skype';
- Form1.Caption:='Mini skype 0.2.9';
+ Form1.Caption:='Mini skype 0.3.1';
  Form1.BorderStyle:=bsSizeable;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -50,9 +47,6 @@ procedure client_setup();
 begin
  Form1.WebBrowser1.EdgeUserDataFolder:=ExtractFilePath(Application.ExeName)+PathDelim+'Cache';
  Form1.WebBrowser1.Silent:=False;
- Form1.WebBrowser1.RegisterAsBrowser:=True;
- Form1.WebBrowser1.RegisterAsDropTarget:=False;
- Form1.WebBrowser1.Offline:=False;
  Form1.WebBrowser1.SelectedEngine:=EdgeOnly;
 end;
 
@@ -103,13 +97,6 @@ end;
 
 procedure TForm1.WebBrowser1NewWindow2(ASender: TObject; var ppDisp: IDispatch;
   var Cancel: WordBool);
-begin
- Cancel:=True;
-end;
-
-procedure TForm1.WebBrowser1NewWindow3(ASender: TObject; var ppDisp: IDispatch;
-  var Cancel: WordBool; dwFlags: LongWord; const bstrUrlContext,
-  bstrUrl: WideString);
 begin
  Cancel:=True;
  ShowMessage('Sorry. You cant open external links');
