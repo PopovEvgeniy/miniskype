@@ -2,7 +2,7 @@
 
                     Alternative Skype client by Popov Evgeniy Alekseyevich
 
-                             Version 0.2.8
+                             Version 0.2.9
 
 
 System requirement
@@ -13,6 +13,11 @@ An internet connection
 Description and usage
 
 This program is an alternative client for web version of Skype.
+
+Trouble guide
+
+Refresh contact list if you don't see you contact list.
+Press F5 to do it.
 
 Thanks
 
@@ -55,4 +60,4 @@ Version history
 0.2.4 — User interface improved
 0.2.5 — 0.2.6 — Small changes
 0.2.7 — User interface improved
-0.2.8 — Small changes
+0.2.8 — 0.2.9 — Small changes

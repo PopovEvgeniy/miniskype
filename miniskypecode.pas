@@ -19,6 +19,8 @@ type
     procedure WebBrowser1NewWindow3(ASender: TObject; var ppDisp: IDispatch;
       var Cancel: WordBool; dwFlags: LongWord; const bstrUrlContext,
       bstrUrl: WideString);
+    procedure WebBrowser1NewWindow2(ASender: TObject; var ppDisp: IDispatch;
+      var Cancel: WordBool);
   private
     { Private declarations }
   public
@@ -32,7 +34,7 @@ implementation
 procedure window_setup();
 begin
  Application.Title:='Mini skype';
- Form1.Caption:='Mini skype 0.2.8';
+ Form1.Caption:='Mini skype 0.2.9';
  Form1.BorderStyle:=bsSizeable;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -80,10 +82,10 @@ end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
- if Form1.WebBrowser1.LocationURL='' then
- begin
-  Form1.WebBrowser1.Navigate('https://web.skype.com');
- end;
+  if Form1.WebBrowser1.LocationURL='' then
+  begin
+   Form1.WebBrowser1.Navigate('https://web.skype.com');
+  end;
 
 end;
 
@@ -91,12 +93,18 @@ procedure TForm1.WebBrowser1BeforeNavigate2(ASender: TObject;
   const pDisp: IDispatch; const URL, Flags, TargetFrameName, PostData,
   Headers: OleVariant; var Cancel: WordBool);
 begin
- if Pos('https://www.skype.com',URL)>0 then
- begin
-  Cancel:=True;
-  Form1.WebBrowser1.Navigate('https://web.skype.com');
- end;
+  if Pos('https://www.skype.com',URL)>0 then
+  begin
+   Cancel:=True;
+   Form1.WebBrowser1.Navigate('https://web.skype.com');
+  end;
 
+end;
+
+procedure TForm1.WebBrowser1NewWindow2(ASender: TObject; var ppDisp: IDispatch;
+  var Cancel: WordBool);
+begin
+ Cancel:=True;
 end;
 
 procedure TForm1.WebBrowser1NewWindow3(ASender: TObject; var ppDisp: IDispatch;
