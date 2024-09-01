@@ -2,7 +2,7 @@
 
                     Alternative Skype client by Popov Evgeniy Alekseyevich
 
-                             Version 0.3.1
+                             Version 0.3.1.1
 
 
 System requirement
@@ -12,16 +12,16 @@ An internet connection
 
 Description and usage
 
-This program is an alternative client for web version of Skype.
+This program is an alternative client for the web version of Skype.
 
 Trouble guide
 
-Refresh contact list if you don't see you contact list.
+Refresh contact list if you don't see your contact list.
 Press F5 to do it.
 
 Thanks
 
-Big thanks to author of Ghetto Skype(https://github.com/stanfieldr/ghetto-skype) for inspiration.
+Big thanks to the author of Ghetto Skype (https://github.com/stanfieldr/ghetto-skype) for inspiration.
 
 License
 
@@ -30,20 +30,20 @@ This program distributed under GNU GENERAL PUBLIC LICENSE.
 Third-party components
 
 Mini skype uses WebView control(https://www.nuget.org/packages/Microsoft.Web.WebView2).
-It distributed under BSD(https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.2651.64/License) license.
+It is distributed under BSD(https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.2651.64/License) license.
 
 Installation notes
 
-Don't install Mini skype to "Program Files" directory.
+Don't install Mini skype in the "Program Files" directory.
 
 Windows 10 specific notes
 
-32-bits version of Windows 10 don't suported.
+32-bits version of Windows 10 are don't supported.
 
 Source code
 
-Source code included in source.zip archive.
-It compiled under Delphi 12 Community Edition.
+Source code is included in the source.zip archive.
+It is compiled under Delphi 12 Community Edition.
 
 Contact
 
@@ -61,3 +61,4 @@ Version history
 0.2.5 — 0.2.6 — Small changes
 0.2.7 — User interface improved
 0.2.8 — 0.3.1 — Small changes
+0.3.1.1 — Webview loader updated
