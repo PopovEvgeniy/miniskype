@@ -2,7 +2,7 @@
 
                     Alternative Skype client by Popov Evgeniy Alekseyevich
 
-                             Version 0.3.1.1
+                             Version 0.3.1.2
 
 
 System requirement
@@ -16,7 +16,7 @@ This program is an alternative client for the web version of Skype.
 
 Trouble guide
 
-Refresh contact list if you don't see your contact list.
+Refresh the contact list if you don't see your contact list.
 Press F5 to do it.
 
 Thanks
@@ -25,7 +25,7 @@ Big thanks to the author of Ghetto Skype (https://github.com/stanfieldr/ghetto-s
 
 License
 
-This program distributed under GNU GENERAL PUBLIC LICENSE.
+This program is distributed under GNU GENERAL PUBLIC LICENSE.
 
 Third-party components
 
@@ -38,27 +38,28 @@ Don't install Mini skype in the "Program Files" directory.
 
 Windows 10 specific notes
 
-32-bits version of Windows 10 are don't supported.
+32-bit versions of Windows 10 aren't supported.
 
 Source code
 
-Source code is included in the source.zip archive.
-It is compiled under Delphi 12 Community Edition.
+The code is included in the source.zip archive.
+It was compiled under Delphi 12 Community Edition.
 
 Contact
 
-You can send me a letter to tuzik87@inbox.ru.
+You can send me a letter at tuzik87@inbox.ru.
 
 Version history
 
 0.1 — Initial version 
-0.1.1 — 0.1.2 — Internal unstable builds
-0.1.3 — 0.1.6 — User interface improved
-0.1.7 — 0.2.2 — Small changes
-0.2.2.1 - Installer added
-0.2.3 — Small changes
-0.2.4 — User interface improved
-0.2.5 — 0.2.6 — Small changes
-0.2.7 — User interface improved
-0.2.8 — 0.3.1 — Small changes
-0.3.1.1 — Webview loader updated
+0.1.1 — 0.1.2 — Internal unstable builds.
+0.1.3 — 0.1.6 — The user interface improved.
+0.1.7 — 0.2.2 — Small changes.
+0.2.2.1 — Installer has been added.
+0.2.3 — Small changes.
+0.2.4 — The user interface improved.
+0.2.5 — 0.2.6 — Small changes.
+0.2.7 — The user interface improved.
+0.2.8 — 0.3.1 — Small changes.
+0.3.1.1 — Webview loader updated.
+0.3.1.2 — Documentation updated.
