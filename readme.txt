@@ -2,7 +2,7 @@
 
                     Alternative Skype client by Popov Evgeniy Alekseyevich
 
-                             Version 0.3.1.2
+                             Version 0.4.7
 
 
 System requirement
@@ -14,11 +14,6 @@ Description and usage
 
 This program is an alternative client for the web version of Skype.
 
-Trouble guide
-
-Refresh the contact list if you don't see your contact list.
-Press F5 to do it.
-
 Thanks
 
 Big thanks to the author of Ghetto Skype (https://github.com/stanfieldr/ghetto-skype) for inspiration.
@@ -29,8 +24,8 @@ This program is distributed under GNU GENERAL PUBLIC LICENSE.
 
 Third-party components
 
-Mini skype uses WebView control(https://www.nuget.org/packages/Microsoft.Web.WebView2).
-It is distributed under BSD(https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.2651.64/License) license.
+Mini skype uses WebView control (https://www.nuget.org/packages/Microsoft.Web.WebView2).
+It is distributed under BSD (https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.2903.40/License) license.
 
 Installation notes
 
@@ -51,15 +46,21 @@ You can send me a letter at tuzik87@inbox.ru.
 
 Version history
 
-0.1 — Initial version 
-0.1.1 — 0.1.2 — Internal unstable builds.
-0.1.3 — 0.1.6 — The user interface improved.
-0.1.7 — 0.2.2 — Small changes.
-0.2.2.1 — Installer has been added.
-0.2.3 — Small changes.
-0.2.4 — The user interface improved.
-0.2.5 — 0.2.6 — Small changes.
-0.2.7 — The user interface improved.
-0.2.8 — 0.3.1 — Small changes.
-0.3.1.1 — Webview loader updated.
-0.3.1.2 — Documentation updated.
+0.1: Initial version 
+0.1.1—0.1.2: The internal unstable builds.
+0.1.3—0.1.6: The user interface has improved.
+0.1.7—0.2.2: The small changes.
+0.2.2.1: The installer has been added.
+0.2.3: The small changes.
+0.2.4: The user interface has improved.
+0.2.5-0.2.6: The small changes.
+0.2.7: The user interface has improved.
+0.2.8-0.3.2: The small changes.
+0.3.1.1: The Webview loader has been updated.
+0.3.1.2: The documentation has been updated.
+0.3.2: A small bug has been fixed.
+0.3.3-0.3.6: The small changes.
+0.3.7: The memory leak has been fixed.
+0.3.8-0.4: The small changes.
+0.4.1: A small bug has been fixed.
+0.4.2-0.4.7: The small changes.
