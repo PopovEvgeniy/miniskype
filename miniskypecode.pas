@@ -3,7 +3,7 @@ unit miniskypecode;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, System.UITypes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, ShellApi, System.SysUtils, System.Variants, System.Classes, System.UITypes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Winapi.WebView2, Winapi.ActiveX,
   Vcl.Edge;
 
@@ -35,7 +35,7 @@ implementation
 procedure window_setup();
 begin
  Application.Title:='Mini skype';
- Form1.Caption:='Mini skype 0.4.7';
+ Form1.Caption:='Mini skype 0.4.8';
  Form1.BorderStyle:=bsSizeable;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -87,8 +87,12 @@ end;
 
 procedure TForm1.EdgeBrowser1NewWindowRequested(Sender: TCustomEdgeBrowser;
   Args: TNewWindowRequestedEventArgs);
+var URL:PWideChar;
 begin
+ Args.ArgsInterface.Get_uri(URL);
  Args.ArgsInterface.Set_Handled(1);
+ ShellExecuteW(0,'open',URL,nil,nil,SW_NORMAL);
+ CoTaskMemFree(URL);
 end;
 
 procedure TForm1.EdgeBrowser1SourceChanged(Sender: TCustomEdgeBrowser;
