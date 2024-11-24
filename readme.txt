@@ -1,11 +1,11 @@
                               Mini skype
 
-                    Alternative Skype client by Popov Evgeniy Alekseyevich
+                    The alternative Skype client by Popov Evgeniy Alekseyevich
 
-                             Version 0.4.8
+                             Version 0.5.1
 
 
-System requirement
+System requirements
 
 Microsoft Windows 10 (22H2) or higher
 An internet connection
@@ -29,11 +29,11 @@ It is distributed under BSD (https://www.nuget.org/packages/Microsoft.Web.WebVie
 
 Installation notes
 
-Don't install Mini skype in the "Program Files" directory.
+Don't install Mini skype to the "Program Files" directory.
 
 Windows 10 specific notes
 
-32-bit versions of Windows 10 aren't supported.
+The 32-bit versions of Windows 10 aren't supported.
 You need Microsoft Edge WebView2 Runtime (https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section) to run Mini skype.
 
 Source code
@@ -64,4 +64,4 @@ Version history
 0.3.7: The memory leak has been fixed.
 0.3.8-0.4: The small changes.
 0.4.1: A small bug has been fixed.
-0.4.2-0.4.8: The small changes.
+0.4.2-0.5.1: The small changes.
