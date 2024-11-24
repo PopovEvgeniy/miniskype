@@ -35,7 +35,7 @@ implementation
 procedure window_setup();
 begin
  Application.Title:='Mini skype';
- Form1.Caption:='Mini skype 0.5.1';
+ Form1.Caption:='Mini skype 0.5.3';
  Form1.BorderStyle:=bsSizeable;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -47,17 +47,29 @@ begin
  Form1.EdgeBrowser1.Height:=Form1.ClientHeight;
 end;
 
+procedure cache_setup();
+var target:string;
+begin
+ target:=ExtractFilePath(Application.ExeName)+PathDelim+'unins000.exe';
+ Form1.EdgeBrowser1.UserDataFolder:=ExtractFilePath(Application.ExeName)+PathDelim+'Cache';
+ if FileExists(target)=True then
+ begin
+  Form1.EdgeBrowser1.UserDataFolder:=GetEnvironmentVariable('APPDATA')+PathDelim+Application.Title;
+ end;
+
+end;
+
 procedure client_setup();
 begin
  Form1.EdgeBrowser1.AllowSingleSignOnUsingOSPrimaryAccount:=True;
  Form1.EdgeBrowser1.TargetCompatibleBrowserVersion:='92.0.902.67';
- Form1.EdgeBrowser1.UserDataFolder:=ExtractFilePath(Application.ExeName)+PathDelim+'Cache';
  Form1.EdgeBrowser1.CreateWebView();
 end;
 
 procedure setup();
 begin
  window_setup();
+ cache_setup();
  client_setup();
  resize_window();
 end;

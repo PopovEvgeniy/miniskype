@@ -2,12 +2,12 @@
 MinVersion=10.0.19045
 AppId={{B4E90873-B789-48A0-9210-9D4C176E080A}
 AppName=Mini skype
-AppVersion=0.5.1
+AppVersion=0.5.3
 AppPublisher=Popov Evgeniy Alekseyevich
 AppPublisherURL=https://github.com/PopovEvgeniy/miniskype
 AppSupportURL=https://github.com/PopovEvgeniy/miniskype
 AppUpdatesURL=https://github.com/PopovEvgeniy/miniskype
-DefaultDirName={sd}\Mini skype
+DefaultDirName={commonpf}\Mini skype
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 DefaultGroupName=Mini skype
@@ -29,7 +29,6 @@ Name: english; MessagesFile: compiler:Default.isl
 [Files]
 Source: .\miniskype.exe; DestDir: {app}; Flags: ignoreversion
 Source: .\copying.txt; DestDir: {app}; Flags: ignoreversion
-Source: .\miniskype.exe; DestDir: {app}; Flags: ignoreversion
 Source: .\readme.txt; DestDir: {app}; Flags: ignoreversion
 Source: .\source.zip; DestDir: {app}; Flags: ignoreversion; Components: source
 Source: .\WebView2Loader.dll; DestDir: {app}; Flags: ignoreversion
