@@ -35,7 +35,7 @@ implementation
 procedure window_setup();
 begin
  Application.Title:='Mini skype';
- Form1.Caption:='Mini skype 0.5.3';
+ Form1.Caption:='Mini skype 0.5.4';
  Form1.BorderStyle:=bsSizeable;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -54,7 +54,7 @@ begin
  Form1.EdgeBrowser1.UserDataFolder:=ExtractFilePath(Application.ExeName)+PathDelim+'Cache';
  if FileExists(target)=True then
  begin
-  Form1.EdgeBrowser1.UserDataFolder:=GetEnvironmentVariable('APPDATA')+PathDelim+Application.Title;
+  Form1.EdgeBrowser1.UserDataFolder:=GetEnvironmentVariable('LOCALAPPDATA')+PathDelim+Application.Title;
  end;
 
 end;

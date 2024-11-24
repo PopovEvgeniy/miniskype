@@ -2,7 +2,7 @@
 MinVersion=10.0.19045
 AppId={{B4E90873-B789-48A0-9210-9D4C176E080A}
 AppName=Mini skype
-AppVersion=0.5.3
+AppVersion=0.5.4
 AppPublisher=Popov Evgeniy Alekseyevich
 AppPublisherURL=https://github.com/PopovEvgeniy/miniskype
 AppSupportURL=https://github.com/PopovEvgeniy/miniskype
@@ -19,7 +19,7 @@ OutputDir=.
 OutputBaseFilename=miniskype_setup
 Compression=lzma2/max
 SolidCompression=yes
-UsePreviousAppDir=no
+UsePreviousAppDir=yes
 Uninstallable=WizardIsTaskSelected('normalinstall')
 WizardStyle=modern
 
@@ -50,3 +50,6 @@ Name: minimalinstallation; Description: Minimal installation
 [Tasks]
 Name: normalinstall; Description: Normal installation; Flags: exclusive
 Name: portableinstall; Description: Portable installation; Flags: exclusive unchecked
+
+[UninstallDelete]
+Type: filesandordirs; Name: "{localappdata}\Mini skype"
