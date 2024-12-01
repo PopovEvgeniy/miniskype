@@ -35,7 +35,7 @@ implementation
 procedure window_setup();
 begin
  Application.Title:='Mini skype';
- Form1.Caption:='Mini skype 0.5.4';
+ Form1.Caption:='Mini skype 0.5.5';
  Form1.BorderStyle:=bsSizeable;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -81,12 +81,12 @@ procedure TForm1.EdgeBrowser1CreateWebViewCompleted(Sender: TCustomEdgeBrowser;
 begin
  if AResult=0 then
  begin
-  Form1.EdgeBrowser1.StatusBarEnabled:=False;
-  Form1.EdgeBrowser1.BuiltInErrorPageEnabled:=False;
-  Form1.EdgeBrowser1.DevToolsEnabled:=False;
-  Form1.EdgeBrowser1.DefaultContextMenusEnabled:=True;
-  Form1.EdgeBrowser1.DefaultScriptDialogsEnabled:=True;
-  Form1.EdgeBrowser1.Navigate('https://web.skype.com');
+  Sender.StatusBarEnabled:=False;
+  Sender.BuiltInErrorPageEnabled:=False;
+  Sender.DevToolsEnabled:=False;
+  Sender.DefaultContextMenusEnabled:=True;
+  Sender.DefaultScriptDialogsEnabled:=True;
+  Sender.Navigate('https://web.skype.com');
  end;
 
 end;
@@ -96,7 +96,7 @@ procedure TForm1.EdgeBrowser1NavigationCompleted(Sender: TCustomEdgeBrowser;
 begin
  if IsSuccess=False then
  begin
-  Form1.EdgeBrowser1.Refresh();
+  Sender.Refresh();
  end;
 
 end;
@@ -113,8 +113,8 @@ procedure TForm1.EdgeBrowser1SourceChanged(Sender: TCustomEdgeBrowser;
 begin
   if Pos('https://www.skype.com',Form1.EdgeBrowser1.LocationURL)>0 then
   begin
-   Form1.EdgeBrowser1.Stop();
-   Form1.EdgeBrowser1.Navigate('https://web.skype.com');
+   Sender.Stop();
+   Sender.Navigate('https://web.skype.com');
   end;
 
 end;
