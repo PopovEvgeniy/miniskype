@@ -35,16 +35,10 @@ implementation
 procedure window_setup();
 begin
  Application.Title:='Mini skype';
- Form1.Caption:='Mini skype 0.5.5';
+ Form1.Caption:='Mini skype 0.5.6';
  Form1.BorderStyle:=bsSizeable;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
-end;
-
-procedure resize_window();
-begin
- Form1.EdgeBrowser1.Width:=Form1.ClientWidth;
- Form1.EdgeBrowser1.Height:=Form1.ClientHeight;
 end;
 
 procedure cache_setup();
@@ -71,7 +65,6 @@ begin
  window_setup();
  cache_setup();
  client_setup();
- resize_window();
 end;
 
 {$R *.dfm}
@@ -111,7 +104,7 @@ end;
 procedure TForm1.EdgeBrowser1SourceChanged(Sender: TCustomEdgeBrowser;
   IsNewDocument: Boolean);
 begin
-  if Pos('https://www.skype.com',Form1.EdgeBrowser1.LocationURL)>0 then
+  if Pos('https://www.skype.com',Sender.LocationURL)>0 then
   begin
    Sender.Stop();
    Sender.Navigate('https://web.skype.com');
@@ -136,7 +129,8 @@ end;
 
 procedure TForm1.FormResize(Sender: TObject);
 begin
- resize_window();
+ Form1.EdgeBrowser1.Width:=Form1.ClientWidth;
+ Form1.EdgeBrowser1.Height:=Form1.ClientHeight;
 end;
 
 end.

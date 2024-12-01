@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Mini skype'
-  ClientHeight = 485
-  ClientWidth = 725
+  ClientHeight = 504
+  ClientWidth = 761
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +18,8 @@ object Form1: TForm1
   object EdgeBrowser1: TEdgeBrowser
     Left = 8
     Top = 8
-    Width = 709
-    Height = 469
+    Width = 745
+    Height = 488
     TabOrder = 0
     AllowSingleSignOnUsingOSPrimaryAccount = False
     TargetCompatibleBrowserVersion = '92.0.902.67'
