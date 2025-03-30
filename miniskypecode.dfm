@@ -1,7 +1,7 @@
-object Form1: TForm1
+object MainWindow: TMainWindow
   Left = 0
   Top = 0
-  Caption = 'Mini skype'
+  Caption = 'Mini Skype'
   ClientHeight = 504
   ClientWidth = 761
   Color = clBtnFace
@@ -15,7 +15,7 @@ object Form1: TForm1
   OnDestroy = FormDestroy
   OnResize = FormResize
   TextHeight = 15
-  object EdgeBrowser1: TEdgeBrowser
+  object WebClient: TEdgeBrowser
     Left = 8
     Top = 8
     Width = 745
@@ -24,9 +24,9 @@ object Form1: TForm1
     AllowSingleSignOnUsingOSPrimaryAccount = False
     TargetCompatibleBrowserVersion = '92.0.902.67'
     UserDataFolder = '%LOCALAPPDATA%\bds.exe.WebView2'
-    OnCreateWebViewCompleted = EdgeBrowser1CreateWebViewCompleted
-    OnNavigationCompleted = EdgeBrowser1NavigationCompleted
-    OnNewWindowRequested = EdgeBrowser1NewWindowRequested
-    OnSourceChanged = EdgeBrowser1SourceChanged
+    OnCreateWebViewCompleted = WebClientCreateWebViewCompleted
+    OnNavigationCompleted = WebClientNavigationCompleted
+    OnNewWindowRequested = WebClientNewWindowRequested
+    OnSourceChanged = WebClientSourceChanged
   end
 end

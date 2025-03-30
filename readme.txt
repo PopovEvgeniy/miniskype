@@ -1,8 +1,8 @@
-                              Mini skype
+                              Mini Skype
 
                     The alternative Skype client by Popov Evgeniy Alekseyevich
 
-                             Version 0.5.6
+                             Version 0.5.9
 
 
 System requirements
@@ -24,19 +24,19 @@ This program is distributed under GNU GENERAL PUBLIC LICENSE.
 
 Third-party components
 
-Mini skype uses WebView control (https://www.nuget.org/packages/Microsoft.Web.WebView2).
-It is distributed under BSD (https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.2903.40/License) license.
+Mini Skype uses WebView control (https://www.nuget.org/packages/Microsoft.Web.WebView2).
+It is distributed under a BSD (https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.3124.44/License) license.
 
-Windows 10 specific notes
+Windows 10-specific notes
 
 The 32-bit versions of Windows 10 aren't supported.
-You need Microsoft Edge WebView2 Runtime (https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section) to run Mini skype.
+You need Microsoft Edge WebView2 Runtime (https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section) to run Mini Skype.
 
 Source code
 
 The code is included in the source.zip archive.
-It was compiled under Delphi 12 Community Edition.
-You need Inno setup if you want to create the installer for Microsoft Windows.
+It was compiled under Delphi 12.3.
+You need Inno Setup if you want to create the installer for Microsoft Windows.
 
 Contact
 
@@ -63,4 +63,4 @@ Version history
 0.4.1: A small bug has been fixed.
 0.4.2-0.5.1: The small changes.
 0.5.2: The portable mode has improved.
-0.5.3-0.5.6: The small changes.
+0.5.3-0.5.9: The small changes.

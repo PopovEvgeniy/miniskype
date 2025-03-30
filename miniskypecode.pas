@@ -8,19 +8,19 @@ uses
   Vcl.Edge;
 
 type
-  TForm1 = class(TForm)
-    EdgeBrowser1: TEdgeBrowser;
+  TMainWindow = class(TForm)
+    WebClient: TEdgeBrowser;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-    procedure EdgeBrowser1SourceChanged(Sender: TCustomEdgeBrowser;
+    procedure WebClientSourceChanged(Sender: TCustomEdgeBrowser;
       IsNewDocument: Boolean);
     procedure FormDestroy(Sender: TObject);
-    procedure EdgeBrowser1CreateWebViewCompleted(Sender: TCustomEdgeBrowser;
+    procedure WebClientCreateWebViewCompleted(Sender: TCustomEdgeBrowser;
       AResult: HRESULT);
-    procedure EdgeBrowser1NavigationCompleted(Sender: TCustomEdgeBrowser;
+    procedure WebClientNavigationCompleted(Sender: TCustomEdgeBrowser;
       IsSuccess: Boolean; WebErrorStatus: COREWEBVIEW2_WEB_ERROR_STATUS);
-    procedure EdgeBrowser1NewWindowRequested(Sender: TCustomEdgeBrowser;
+    procedure WebClientNewWindowRequested(Sender: TCustomEdgeBrowser;
       Args: TNewWindowRequestedEventArgs);
   private
     { Private declarations }
@@ -28,36 +28,36 @@ type
     { Public declarations }
   end;
 
-var Form1: TForm1;
+var MainWindow: TMainWindow;
 
 implementation
 
 procedure window_setup();
 begin
- Application.Title:='Mini skype';
- Form1.Caption:='Mini skype 0.5.6';
- Form1.BorderStyle:=bsSizeable;
- Form1.Font.Name:=Screen.MenuFont.Name;
- Form1.Font.Size:=14;
+ Application.Title:='Mini Skype';
+ MainWindow.Caption:='Mini Skype 0.5.9';
+ MainWindow.BorderStyle:=bsSizeable;
+ MainWindow.Font.Name:=Screen.MenuFont.Name;
+ MainWindow.Font.Size:=14;
 end;
 
 procedure cache_setup();
 var target:string;
 begin
  target:=ExtractFilePath(Application.ExeName)+PathDelim+'unins000.exe';
- Form1.EdgeBrowser1.UserDataFolder:=ExtractFilePath(Application.ExeName)+PathDelim+'Cache';
+ MainWindow.WebClient.UserDataFolder:=ExtractFilePath(Application.ExeName)+PathDelim+'Cache';
  if FileExists(target)=True then
  begin
-  Form1.EdgeBrowser1.UserDataFolder:=GetEnvironmentVariable('LOCALAPPDATA')+PathDelim+Application.Title;
+  MainWindow.WebClient.UserDataFolder:=GetEnvironmentVariable('LOCALAPPDATA')+PathDelim+Application.Title;
  end;
 
 end;
 
 procedure client_setup();
 begin
- Form1.EdgeBrowser1.AllowSingleSignOnUsingOSPrimaryAccount:=True;
- Form1.EdgeBrowser1.TargetCompatibleBrowserVersion:='92.0.902.67';
- Form1.EdgeBrowser1.CreateWebView();
+ MainWindow.WebClient.AllowSingleSignOnUsingOSPrimaryAccount:=True;
+ MainWindow.WebClient.TargetCompatibleBrowserVersion:='92.0.902.67';
+ MainWindow.WebClient.CreateWebView();
 end;
 
 procedure setup();
@@ -69,22 +69,38 @@ end;
 
 {$R *.dfm}
 
-procedure TForm1.EdgeBrowser1CreateWebViewCompleted(Sender: TCustomEdgeBrowser;
+procedure TMainWindow.FormCreate(Sender: TObject);
+begin
+ setup();
+end;
+
+procedure TMainWindow.FormDestroy(Sender: TObject);
+begin
+ MainWindow.WebClient.CloseWebView();
+end;
+
+procedure TMainWindow.FormResize(Sender: TObject);
+begin
+ MainWindow.WebClient.Width:=MainWindow.ClientWidth;
+ MainWindow.WebClient.Height:=MainWindow.ClientHeight;
+end;
+
+procedure TMainWindow.WebClientCreateWebViewCompleted(Sender: TCustomEdgeBrowser;
   AResult: HRESULT);
 begin
- if AResult=0 then
+ if Sender.WebViewCreated=True then
  begin
   Sender.StatusBarEnabled:=False;
   Sender.BuiltInErrorPageEnabled:=False;
   Sender.DevToolsEnabled:=False;
   Sender.DefaultContextMenusEnabled:=True;
   Sender.DefaultScriptDialogsEnabled:=True;
-  Sender.Navigate('https://web.skype.com');
+  Sender.Navigate('https://preview.web.skype.com');
  end;
 
 end;
 
-procedure TForm1.EdgeBrowser1NavigationCompleted(Sender: TCustomEdgeBrowser;
+procedure TMainWindow.WebClientNavigationCompleted(Sender: TCustomEdgeBrowser;
   IsSuccess: Boolean; WebErrorStatus: COREWEBVIEW2_WEB_ERROR_STATUS);
 begin
  if IsSuccess=False then
@@ -94,43 +110,27 @@ begin
 
 end;
 
-procedure TForm1.EdgeBrowser1NewWindowRequested(Sender: TCustomEdgeBrowser;
+procedure TMainWindow.WebClientNewWindowRequested(Sender: TCustomEdgeBrowser;
   Args: TNewWindowRequestedEventArgs);
 begin
  Args.ArgsInterface.Set_Handled(1);
  ShowMessage('An external link is not supported');
 end;
 
-procedure TForm1.EdgeBrowser1SourceChanged(Sender: TCustomEdgeBrowser;
+procedure TMainWindow.WebClientSourceChanged(Sender: TCustomEdgeBrowser;
   IsNewDocument: Boolean);
 begin
   if Pos('https://www.skype.com',Sender.LocationURL)>0 then
   begin
    Sender.Stop();
-   Sender.Navigate('https://web.skype.com');
+   Sender.Navigate('https://preview.web.skype.com');
   end;
 
 end;
 
-procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+procedure TMainWindow.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
  CanClose:=MessageDlg('Do you want to quit?',mtConfirmation,mbYesNo,0)=mrYes;
-end;
-
-procedure TForm1.FormCreate(Sender: TObject);
-begin
- setup();
-end;
-
-procedure TForm1.FormDestroy(Sender: TObject);
-begin
- Form1.EdgeBrowser1.CloseWebView();
-end;
-
-procedure TForm1.FormResize(Sender: TObject);
-begin
- Form1.EdgeBrowser1.Width:=Form1.ClientWidth;
- Form1.EdgeBrowser1.Height:=Form1.ClientHeight;
 end;
 
 end.
