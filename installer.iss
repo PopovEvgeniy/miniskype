@@ -2,7 +2,7 @@
 MinVersion=10.0.19045
 AppId={{B4E90873-B789-48A0-9210-9D4C176E080A}
 AppName=Mini Skype
-AppVersion=0.5.9
+AppVersion=0.5.9.1
 AppPublisher=Popov Evgeniy Alekseyevich
 AppPublisherURL=https://github.com/PopovEvgeniy/miniskype
 AppSupportURL=https://github.com/PopovEvgeniy/miniskype

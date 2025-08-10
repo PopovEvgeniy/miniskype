@@ -2,7 +2,7 @@
 
                     The alternative Skype client by Popov Evgeniy Alekseyevich
 
-                             Version 0.5.9
+                             Version 0.5.9.1
 
 
 System requirements
@@ -20,12 +20,12 @@ Big thanks to the author of Ghetto Skype (https://github.com/stanfieldr/ghetto-s
 
 License
 
-This program is distributed under GNU GENERAL PUBLIC LICENSE.
+This program is distributed under the GNU GENERAL PUBLIC LICENSE.
 
 Third-party components
 
-Mini Skype uses WebView control (https://www.nuget.org/packages/Microsoft.Web.WebView2).
-It is distributed under a BSD (https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.3124.44/License) license.
+Mini Skype uses the WebView control (https://www.nuget.org/packages/Microsoft.Web.WebView2).
+It is distributed under the BSD license (https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.3124.44/License).
 
 Windows 10-specific notes
 
@@ -37,10 +37,6 @@ Source code
 The code is included in the source.zip archive.
 It was compiled under Delphi 12.3.
 You need Inno Setup if you want to create the installer for Microsoft Windows.
-
-Contact
-
-You can send me a letter at tuzik87@inbox.ru.
 
 Version history
 
@@ -64,3 +60,4 @@ Version history
 0.4.2-0.5.1: The small changes.
 0.5.2: The portable mode has improved.
 0.5.3-0.5.9: The small changes.
+0.5.9.1: The documentation has been updated.
