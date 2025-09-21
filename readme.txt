@@ -2,45 +2,45 @@
 
                     The alternative Skype client by Popov Evgeniy Alekseyevich
 
-                             Version 0.5.9.1
+                             Version 0.5.9.2
 
 
-System requirements
+System requirements.
 
 Microsoft Windows 10 (22H2) or higher
 An internet connection
 
-Description and usage
+The program description.
 
 This program is an alternative client for the web version of Skype.
 
-Thanks
+Thanks.
 
 Big thanks to the author of Ghetto Skype (https://github.com/stanfieldr/ghetto-skype) for inspiration.
 
-License
+License.
 
 This program is distributed under the GNU GENERAL PUBLIC LICENSE.
 
-Third-party components
+The third-party component.
 
 Mini Skype uses the WebView control (https://www.nuget.org/packages/Microsoft.Web.WebView2).
 It is distributed under the BSD license (https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.3124.44/License).
 
-Windows 10-specific notes
+Windows 10-specific notes.
 
 The 32-bit versions of Windows 10 aren't supported.
 You need Microsoft Edge WebView2 Runtime (https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section) to run Mini Skype.
 
-Source code
+The source code.
 
 The code is included in the source.zip archive.
 It was compiled under Delphi 12.3.
 You need Inno Setup if you want to create the installer for Microsoft Windows.
 
-Version history
+Version history.
 
-0.1: Initial version 
+0.1: The initial version 
 0.1.1—0.1.2: The internal unstable builds.
 0.1.3—0.1.6: The user interface has improved.
 0.1.7—0.2.2: The small changes.
@@ -60,4 +60,4 @@ Version history
 0.4.2-0.5.1: The small changes.
 0.5.2: The portable mode has improved.
 0.5.3-0.5.9: The small changes.
-0.5.9.1: The documentation has been updated.
+0.5.9.1-0.5.9.2: The documentation has been updated.
