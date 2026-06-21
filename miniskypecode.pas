@@ -1,11 +1,14 @@
 unit miniskypecode;
 
+{
+ This sofware was made by Popov Evgeniy Alekseyevich.
+ It is distributed under the GNU GENERAL PUBLIC LICENSE (Version 2 or higher).
+}
+
 interface
 
-uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, System.UITypes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Winapi.WebView2, Winapi.ActiveX,
-  Vcl.Edge;
+uses Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, System.UITypes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Winapi.WebView2, Winapi.ActiveX, Vcl.Edge;
 
 type
   TMainWindow = class(TForm)
@@ -23,7 +26,10 @@ type
     procedure WebClientNewWindowRequested(Sender: TCustomEdgeBrowser;
       Args: TNewWindowRequestedEventArgs);
   private
-    { Private declarations }
+    procedure window_setup();
+    procedure cache_setup();
+    procedure client_setup();
+    procedure setup();
   public
     { Public declarations }
   end;
@@ -32,57 +38,57 @@ var MainWindow: TMainWindow;
 
 implementation
 
-procedure window_setup();
+procedure TMainWindow.window_setup();
 begin
  Application.Title:='Mini Skype';
- MainWindow.Caption:='Mini Skype 0.5.9';
- MainWindow.BorderStyle:=bsSizeable;
- MainWindow.Font.Name:=Screen.MenuFont.Name;
- MainWindow.Font.Size:=14;
+ Self.Caption:='Mini Skype 0.6.2';
+ Self.BorderStyle:=bsSizeable;
+ Self.Font.Name:=Screen.MenuFont.Name;
+ Self.Font.Size:=14;
 end;
 
-procedure cache_setup();
+procedure TMainWindow.cache_setup();
 var target:string;
 begin
  target:=ExtractFilePath(Application.ExeName)+PathDelim+'unins000.exe';
- MainWindow.WebClient.UserDataFolder:=ExtractFilePath(Application.ExeName)+PathDelim+'Cache';
+ Self.WebClient.UserDataFolder:=ExtractFilePath(Application.ExeName)+PathDelim+'Cache';
  if FileExists(target)=True then
  begin
-  MainWindow.WebClient.UserDataFolder:=GetEnvironmentVariable('LOCALAPPDATA')+PathDelim+Application.Title;
+  Self.WebClient.UserDataFolder:=GetEnvironmentVariable('LOCALAPPDATA')+PathDelim+Application.Title;
  end;
 
 end;
 
-procedure client_setup();
+procedure TMainWindow.client_setup();
 begin
- MainWindow.WebClient.AllowSingleSignOnUsingOSPrimaryAccount:=True;
- MainWindow.WebClient.TargetCompatibleBrowserVersion:='92.0.902.67';
- MainWindow.WebClient.CreateWebView();
+ Self.WebClient.AllowSingleSignOnUsingOSPrimaryAccount:=True;
+ Self.WebClient.TargetCompatibleBrowserVersion:='92.0.902.67';
+ Self.WebClient.CreateWebView();
 end;
 
-procedure setup();
+procedure TMainWindow.setup();
 begin
- window_setup();
- cache_setup();
- client_setup();
+ Self.window_setup();
+ Self.cache_setup();
+ Self.client_setup();
 end;
 
 {$R *.dfm}
 
 procedure TMainWindow.FormCreate(Sender: TObject);
 begin
- setup();
+ Self.setup();
 end;
 
 procedure TMainWindow.FormDestroy(Sender: TObject);
 begin
- MainWindow.WebClient.CloseWebView();
+ Self.WebClient.CloseWebView();
 end;
 
 procedure TMainWindow.FormResize(Sender: TObject);
 begin
- MainWindow.WebClient.Width:=MainWindow.ClientWidth;
- MainWindow.WebClient.Height:=MainWindow.ClientHeight;
+ Self.WebClient.Width:=Self.ClientWidth;
+ Self.WebClient.Height:=Self.ClientHeight;
 end;
 
 procedure TMainWindow.WebClientCreateWebViewCompleted(Sender: TCustomEdgeBrowser;
@@ -95,9 +101,14 @@ begin
   Sender.DevToolsEnabled:=False;
   Sender.DefaultContextMenusEnabled:=True;
   Sender.DefaultScriptDialogsEnabled:=True;
-  Sender.Navigate('https://preview.web.skype.com');
+  Sender.Navigate('https://preview.web.skype.com');  
+ end
+ else
+ begin
+  ShowMessage('Cannot initialize the web client');
+  Application.Terminate();
  end;
-
+ 
 end;
 
 procedure TMainWindow.WebClientNavigationCompleted(Sender: TCustomEdgeBrowser;
